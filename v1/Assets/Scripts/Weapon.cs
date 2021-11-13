@@ -18,13 +18,13 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.A)) {
-            boxRigid.AddForce(new Vector3(-10f, 0f, 0f));
+            boxRigid.AddForce(new Vector3(-5f, 0f, 0f));
         }
         if (Input.GetKey(KeyCode.D)) {
-            boxRigid.AddForce(new Vector3(10f, 0f, 0f));
+            boxRigid.AddForce(new Vector3(5f, 0f, 0f));
         }
         if (Input.GetKey(KeyCode.W)) {
-            boxRigid.AddForce(new Vector3(0f, 0f, 10f));
+            boxRigid.AddForce(new Vector3(0f, 0f, 5f));
         }
         if (Input.GetKey(KeyCode.S)) {
             boxRigid.AddForce(new Vector3(0f, 0f, -10f));
