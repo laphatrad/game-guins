@@ -27,10 +27,10 @@ public class Weapon : MonoBehaviour
             boxRigid.AddForce(new Vector3(0f, 0f, 5f));
         }
         if (Input.GetKey(KeyCode.S)) {
-            boxRigid.AddForce(new Vector3(0f, 0f, -10f));
+            boxRigid.AddForce(new Vector3(0f, 0f, -5f));
         }
         if (Input.GetKey(KeyCode.Space)) {
-            boxRigid.AddForce(new Vector3(0f, 10f, 0f));
+            boxRigid.AddForce(new Vector3(0f, 5f, 0f));
         }
         if (Input.GetKey(KeyCode.E)) {
             if (remainingFiringRate <= 0) {
