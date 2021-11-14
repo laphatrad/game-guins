@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public Rigidbody boxRigid;
     private double firingRate = 0.25;
     private double remainingFiringRate = 0;
+    public Animator gunShot;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,27 +19,30 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.A)) {
-            boxRigid.AddForce(new Vector3(-5f, 0f, 0f));
+            boxRigid.AddForce(new Vector3(-10f, 0f, 0f));
         }
         if (Input.GetKey(KeyCode.D)) {
-            boxRigid.AddForce(new Vector3(5f, 0f, 0f));
+            boxRigid.AddForce(new Vector3(10f, 0f, 0f));
         }
         if (Input.GetKey(KeyCode.W)) {
-            boxRigid.AddForce(new Vector3(0f, 0f, 5f));
+            boxRigid.AddForce(new Vector3(0f, 0f, 10f));
         }
         if (Input.GetKey(KeyCode.S)) {
-            boxRigid.AddForce(new Vector3(0f, 0f, -5f));
+            boxRigid.AddForce(new Vector3(0f, 0f, -10f));
         }
         if (Input.GetKey(KeyCode.Space)) {
-            boxRigid.AddForce(new Vector3(0f, 5f, 0f));
+            boxRigid.AddForce(new Vector3(0f, 10f, 0f));
         }
         if (Input.GetKey(KeyCode.E)) {
+
+            gunShot.SetBool("shotshot", true);
             if (remainingFiringRate <= 0) {
                 GameObject bulletObj = Instantiate(bullet, boxRigid.transform.position, boxRigid.transform.rotation);
                 bullet.transform.forward = boxRigid.transform.forward;
                 remainingFiringRate = firingRate;
             }
             remainingFiringRate -= Time.deltaTime;
+            gunShot.SetBool("shotshot", false);
         }
     }
 }
