@@ -18,19 +18,19 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.A)) {
-            boxRigid.AddForce(new Vector3(-5f, 0f, 0f));
+            boxRigid.AddForce(new Vector3(-3f, 0f, 0f));
         }
         if (Input.GetKey(KeyCode.D)) {
-            boxRigid.AddForce(new Vector3(5f, 0f, 0f));
+            boxRigid.AddForce(new Vector3(3f, 0f, 0f));
         }
         if (Input.GetKey(KeyCode.W)) {
-            boxRigid.AddForce(new Vector3(0f, 0f, 5f));
+            boxRigid.AddForce(new Vector3(0f, 0f, 3f));
         }
         if (Input.GetKey(KeyCode.S)) {
-            boxRigid.AddForce(new Vector3(0f, 0f, -5f));
+            boxRigid.AddForce(new Vector3(0f, 0f, -3f));
         }
         if (Input.GetKey(KeyCode.Space)) {
-            boxRigid.AddForce(new Vector3(0f, 5f, 0f));
+            boxRigid.AddForce(new Vector3(0f, 3f, 0f));
         }
         if (Input.GetKey(KeyCode.E)) {
             if (remainingFiringRate <= 0) {
