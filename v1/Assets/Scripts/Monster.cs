@@ -22,7 +22,7 @@ public class Monster : MonoBehaviour
     void Update() {
         var wpn = weapon.GetComponent<Weapon>();
         transform.LookAt(wpn.transform);
-        var newPosition = transform.position + movementDirection * movementSpeed * Time.deltaTime;
+        var newPosition = transform.position + (movementDirection * movementSpeed * Time.deltaTime);
         Debug.Log(Vector3.Distance(transform.position, wpn.transform.position));
         var farther = Vector3.Distance(lastPosition, wpn.transform.position) < Vector3.Distance(newPosition, wpn.transform.position);
         if (farther && Vector3.Distance(newPosition, wpn.transform.position) >= 10f) {
