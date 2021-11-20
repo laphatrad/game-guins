@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:v1/Assets/Materials/Stone-Block-600x600.png.meta
 guid: 32ce06131d34a454f85469941763adf9
+=======
+guid: f41e2ce22ff944f8a95abdb263a49a11
+>>>>>>> Stashed changes:v1/Assets/Editor/Vuforia/ImageTargetTextures/AR_MODEL/qr-code_scaled.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

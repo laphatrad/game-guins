@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:v1/Assets/Characters/png-transparent-eye-color-blue-eye-lens-people-computer-wallpaper.jpg.meta
 guid: 4893f385faf213243bb1de3430145eec
+=======
+guid: 71b7c39eaa4548b09b3297e95b5174d6
+>>>>>>> Stashed changes:v1/Assets/Editor/Vuforia/ImageTargetTextures/AR_MODEL/Target1_scaled.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
