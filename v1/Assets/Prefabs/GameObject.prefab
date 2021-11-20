@@ -120,7 +120,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7703029887143714567}
-  m_LocalRotation: {x: -0.13153337, y: 0.8669991, z: -0.36585954, w: -0.31170243}
+  m_LocalRotation: {x: 0.12009543, y: -0.36570874, z: 0.047650103, w: 0.9217178}
   m_LocalPosition: {x: -0.0000035524129, y: 9.0765505, z: -3.0188847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 5
+  collisionTag: Weapon
 --- !u!135 &-6555496180257695559
 SphereCollider:
   m_ObjectHideFlags: 0

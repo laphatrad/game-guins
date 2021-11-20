@@ -23,14 +23,15 @@ public class Monster : MonoBehaviour
         var wpn = weapon.GetComponent<Weapon>();
         transform.LookAt(wpn.transform);
         var newPosition = transform.position + (movementDirection * movementSpeed * Time.deltaTime);
-        Debug.Log(Vector3.Distance(transform.position, wpn.transform.position));
         var farther = Vector3.Distance(lastPosition, wpn.transform.position) < Vector3.Distance(newPosition, wpn.transform.position);
-        if (farther && Vector3.Distance(newPosition, wpn.transform.position) >= 10f) {
+        if (farther && Vector3.Distance(newPosition, wpn.transform.position) >= 20f) {
             // Transform newDirection = transform;
             // newDirection.Rotate(Random.Range(0, 90.0f), Random.Range(0, 90.0f), Random.Range(0, 90.0f));
             // movementDirection = newDirection.position;
-            while (Vector3.Angle(transform.forward, movementDirection) >= 90.0f) {
-                movementDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+            movementDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+            // Debug.Log(Vector3.Dot(transform.forward, movementDirection));
+            if (Vector3.Dot(transform.forward, movementDirection) < 0) {
+                movementDirection = movementDirection * -1;
             }
             // movementDirection = transform.forward;
         } else {
