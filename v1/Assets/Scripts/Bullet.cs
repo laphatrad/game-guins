@@ -23,9 +23,9 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider) {
-        if (collider.gameObject.tag == "Monster") {
-            Monster monster = collider.gameObject.GetComponent<Monster>();
-            monster.TakeDamage(damage);
+        if (collider.gameObject.tag == "Weapon") {
+            Weapon weapon = collider.gameObject.GetComponent<Weapon>();
+            weapon.TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }
