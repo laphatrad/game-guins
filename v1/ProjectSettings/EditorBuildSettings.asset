@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: a61edc0cef250429eb548619ce58c57f
+  - enabled: 1
+    path: Assets/Scenes/POC-Fire.unity
+    guid: 2507f48e2793c4d8d943a9cc239e3a2f
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 1e074f29f9af044c18763210d2dbf25b, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7d467e65baa7f4db4957c5f381b2ee9c, type: 2}
