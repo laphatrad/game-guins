@@ -24,12 +24,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream:v1/Assets/Prefabs/Heart Bullet.prefab
   m_GameObject: {fileID: 2265290929595236158}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 7784802099194039057}
+=======
+  m_GameObject: {fileID: 6748737824221074862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1339443609565017592}
+  m_Father: {fileID: 0}
+>>>>>>> Stashed changes:v1/Assets/Prefabs/Monster 1.prefab
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7432535493073363379
@@ -59,7 +69,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+<<<<<<< Updated upstream:v1/Assets/Prefabs/Heart Bullet.prefab
   - {fileID: 239378781582670930, guid: b7675d78f3bdd5441a599b446dff5254, type: 3}
+=======
+  - {fileID: 2100000, guid: ffb403e72dbb2b04fb2d9f2a1b7b69b0, type: 2}
+>>>>>>> Stashed changes:v1/Assets/Prefabs/Monster 1.prefab
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,5 +139,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe54e8051e57408fa18551869795cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream:v1/Assets/Prefabs/Heart Bullet.prefab
   speed: 16
   damage: 5
+=======
+  hp: 20
+  weapon: {fileID: 0}
+  bullet: {fileID: 7703029887143714567, guid: e1828fe1baf8445e79eaafb865c8f769, type: 3}
+--- !u!1001 &6420910004678885722
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6748737824221074853}
+    m_Modifications:
+    - target: {fileID: 4723240983456553841, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_Name
+      value: Catnana
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723240983456553841, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+--- !u!4 &1339443609565017592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5444024554029135010, guid: 3d41edd23f68f0f48ad512da38277ccd, type: 3}
+  m_PrefabInstance: {fileID: 6420910004678885722}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> Stashed changes:v1/Assets/Prefabs/Monster 1.prefab
