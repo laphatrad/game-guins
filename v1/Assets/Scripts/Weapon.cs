@@ -32,22 +32,24 @@ public class Weapon : MonoBehaviour
 
     public void Hit() {
         if (remainingFiringRate <= 0) {
-            Vector3 lineOrigin = camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-            Debug.DrawRay(lineOrigin, camera.transform.forward * 100f, Color.green);
-            RaycastHit hit;
-            laserLine.SetPosition(0, gunEnd.position);
-            StartCoroutine(ShotEffect());
-            if (Physics.Raycast(lineOrigin, camera.transform.forward, out hit, 100f)) {
-                laserLine.SetPosition (1, hit.point);
-                Monster monster = hit.collider.GetComponent<Monster>();
+            // Vector3 lineOrigin = camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+            // Debug.DrawRay(lineOrigin, camera.transform.forward * 100f, Color.green);
+            // RaycastHit hit;
+            // laserLine.SetPosition(0, gunEnd.position);
+            // StartCoroutine(ShotEffect());
+            // if (Physics.Raycast(lineOrigin, camera.transform.forward, out hit, 100f)) {
+            //     laserLine.SetPosition (1, hit.point);
+            //     Monster monster = hit.collider.GetComponent<Monster>();
 
-                if (monster != null) {
-                    monster.TakeDamage(damage);
-                }
-            }
-            else {
-                laserLine.SetPosition (1, lineOrigin + (camera.transform.forward * 100f));
-            }
+            //     if (monster != null) {
+            //         monster.TakeDamage(damage);
+            //     }
+            // }
+            // else {
+            //     laserLine.SetPosition (1, lineOrigin + (camera.transform.forward * 100f));
+            // }
+            GameObject bulletObj = Instantiate(bullet, transform.position, transform.rotation);
+            bullet.transform.forward = transform.forward;
             remainingFiringRate = firingRate;
         }
     }
