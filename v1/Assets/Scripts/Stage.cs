@@ -28,13 +28,12 @@ public class Stage : MonoBehaviour
         if (!isPlaying) {
             if (timeRemaining > 0) {
                 timeRemaining -= Time.deltaTime;
-
             }
             else {
                 isPlaying = false;
             }
         } else {
-            
+            Debug.Log("monsterAmount -> "+monsterAmount);
         }
     }
 

@@ -8,12 +8,14 @@ public class Weapon : MonoBehaviour
     public Rigidbody boxRigid;
     public Transform gunEnd;
     public double hp = 100;
+    
 
     public TMPro.TextMeshProUGUI txtHp;
+    public TMPro.TextMeshProUGUI txtScore;
 
-    private double firingRate = 0.25;
+    private double firingRate = 0.10;
     private double remainingFiringRate = 0;
-    private double damage = 5;
+    private double damage = 20;
     private LineRenderer laserLine;
     private Camera camera;
     // Start is called before the first frame update

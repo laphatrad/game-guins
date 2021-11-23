@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 16f;
-    public double damage = 5;
+    public double damage = 20;
     private Vector3 firstPosition;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider) {
+        Debug.Log("Weapon Tag"+collider.gameObject.tag);
         if (collider.gameObject.tag == "Weapon") {
             Weapon weapon = collider.gameObject.GetComponent<Weapon>();
             weapon.TakeDamage(damage);
