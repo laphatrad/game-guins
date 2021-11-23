@@ -11,7 +11,6 @@ public class Weapon : MonoBehaviour
     
 
     public TMPro.TextMeshProUGUI txtHp;
-    public TMPro.TextMeshProUGUI txtScore;
 
     private double firingRate = 0.10;
     private double remainingFiringRate = 0;
