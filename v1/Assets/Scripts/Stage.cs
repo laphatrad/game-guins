@@ -26,7 +26,12 @@ public class Stage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GameManager.Instance.isPlaying) {
+            int monsterRemaining = GetMonsterRemaining();
+            if (monsterRemaining == 0) {
+                FinishStage();
+            }
+        }
     }
 
     void SetRespawningPoint(Vector3 point) {
@@ -55,5 +60,25 @@ public class Stage : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         GameManager.Instance.isPlaying = true;
+    }
+
+    int GetMonsterRemaining() {
+        int remaining = 0;
+        for (int i = 0; i < monsterAmount; i++) {
+            if (monsters[i].activeSelf) {
+                remaining += 1;
+            }
+        }
+        Debug.Log("Remaining" + remaining);
+        return remaining;
+    }
+
+    void FinishStage() {
+        GameManager.Instance.isPlaying = false;
+        GameManager.Instance.score += 10;
+        GameManager.Instance.timeRemaining = 0;
+        for (int i = 0; i < monsterAmount; i++) {
+            Destroy(monsters[i]);
+        }
     }
 }

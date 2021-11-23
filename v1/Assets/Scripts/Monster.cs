@@ -59,7 +59,7 @@ public class Monster : MonoBehaviour
     void Die() {
         Debug.Log("Monster Die");
         GameManager.Instance.score += score;
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision) {
