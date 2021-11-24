@@ -7,10 +7,7 @@ public class Monster : MonoBehaviour
     public double hp = 20;
     public int score = 1;
     public Weapon weapon;
-    public GameObject bullet;
 
-    private double firingRate = 2;
-    private double remainingFiringRate = 0;
     private float movementSpeed = 3f;
     private Vector3 lastPosition;
     private Vector3 movementDirection;
@@ -31,13 +28,6 @@ public class Monster : MonoBehaviour
         if (hp <= 0) {
             Die();
         }
-
-        if (remainingFiringRate <= 0) {
-            GameObject bulletObj = Instantiate(bullet, transform.position, transform.rotation);
-            bullet.transform.forward = transform.forward;
-            remainingFiringRate = firingRate;
-        }
-        remainingFiringRate -= Time.deltaTime;
     }
 
     void Move() {
