@@ -57,6 +57,8 @@ public class Monster : MonoBehaviour
     }
 
     void Die() {
-        Destroy(this.gameObject);
+        Debug.Log("Monster Die");
+        GameManager.Instance.score += score;
+        this.gameObject.SetActive(false);
     }
 }

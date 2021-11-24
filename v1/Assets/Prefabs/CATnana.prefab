@@ -135,9 +135,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 20
+  score: 1
   weapon: {fileID: 7179704244962965312, guid: be4e924fadd274902b4dcd89dcda8990, type: 3}
   bullet: {fileID: 7703029887143714567, guid: e1828fe1baf8445e79eaafb865c8f769, type: 3}
   DeathSound: {fileID: 212028158245230834, guid: 1c43f9eab305f4973b30cf3184e83b12, type: 3}
+  blood: {fileID: 5193952684752020231, guid: 5d817e218ec87064ea9505cb1c530db1, type: 3}
 --- !u!65 &-8695792174951474343
 BoxCollider:
   m_ObjectHideFlags: 0
