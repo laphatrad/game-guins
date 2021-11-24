@@ -26,7 +26,7 @@ public class Stage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isPlaying) {
+        if (GameManager.Instance.isPlaying && isSpawn) {
             int monsterRemaining = GetMonsterRemaining();
             if (monsterRemaining == 0) {
                 FinishStage();

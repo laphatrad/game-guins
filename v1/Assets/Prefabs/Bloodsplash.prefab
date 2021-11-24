@@ -746,11 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-<<<<<<< Updated upstream
-      value: 1
-=======
       value: 2
->>>>>>> Stashed changes
       mode: 0
       spread: 0
       speed:

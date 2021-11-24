@@ -8,7 +8,7 @@ public class Monster : MonoBehaviour
     public int score = 1;
     public Weapon weapon;
 
-    private float movementSpeed = 3f;
+    public float movementSpeed = 3f;
     private Vector3 lastPosition;
     private Vector3 movementDirection;
 
