@@ -11,6 +11,7 @@ public class ResetButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start");
         var btn = button.GetComponent<Button>();
         btn.onClick.AddListener(clickReset);
     }
