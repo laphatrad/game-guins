@@ -5,12 +5,13 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     public double hp = 20;
+    public int score = 1;
     public Weapon weapon;
     public GameObject bullet;
 
     private double firingRate = 2;
     private double remainingFiringRate = 0;
-    private float movementSpeed = 5f;
+    private float movementSpeed = 3f;
     private Vector3 lastPosition;
     private Vector3 movementDirection;
     // Start is called before the first frame update
@@ -52,9 +53,23 @@ public class Monster : MonoBehaviour
 
     public void TakeDamage(double damage) {
         hp -= damage;
+        Debug.Log("TakeDamage hp -> "+hp);
     }
 
     void Die() {
-        Destroy(this.gameObject);
+        Debug.Log("Monster Die");
+        GameManager.Instance.score += score;
+        this.gameObject.SetActive(false);
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        Debug.Log("Monster hp -> "+hp);
+        Debug.Log("Monster Tag -> "+collision.gameObject.tag);
+        if (collision.gameObject.tag == "Weapon") {
+            TakeDamage(20);
+        }
+        if (collision.gameObject.tag == "Bullet") {
+            TakeDamage(20);
+        }
     }
 }

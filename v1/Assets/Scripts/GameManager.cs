@@ -2,23 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
-    public double score;
-    public int stage;
-    public double highestScore;
+    public static GameManager Instance { get; private set; }
 
-    void StartGame() {
-        score = 0;
-        stage = 1;
+    public int score = 0;
+    public double timeRemaining;
+    public bool isPlaying = false;
+
+    public TMPro.TextMeshProUGUI txtScore;
+    public TMPro.TextMeshProUGUI txtTime;
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
-    void StartStage(int stage) {
-        stage = stage;
-        // get Stage
-    }
-
-    void EndGame() {
-        //End the game
+    void Update()
+    {
+        txtScore.text = "Score: " + score.ToString();
+        if (isPlaying) {
+            txtTime.text = timeRemaining.ToString("0.00");
+            if (timeRemaining > 0) {
+                timeRemaining -= Time.deltaTime;
+            }
+            else {
+                isPlaying = false;
+            }
+        } else {
+            txtTime.text = "Not start";
+        }
     }
 }
