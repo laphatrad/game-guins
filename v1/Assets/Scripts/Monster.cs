@@ -65,15 +65,4 @@ public class Monster : MonoBehaviour
         GameManager.Instance.score += score;
         this.gameObject.SetActive(false);
     }
-
-    private void OnCollisionEnter(Collision collision) {
-        Debug.Log("Monster hp -> "+hp);
-        Debug.Log("Monster Tag -> "+collision.gameObject.tag);
-        if (collision.gameObject.tag == "Weapon") {
-            TakeDamage(20);
-        }
-        if (collision.gameObject.tag == "Bullet") {
-            TakeDamage(20);
-        }
-    }
 }
