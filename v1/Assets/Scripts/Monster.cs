@@ -7,6 +7,7 @@ public class Monster : MonoBehaviour
     public double hp = 20;
     public Weapon weapon;
     public GameObject bullet;
+    public AudioSource DeathSound;
 
     private double firingRate = 2;
     private double remainingFiringRate = 0;
