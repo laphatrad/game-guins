@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6506249813049761864}
   - component: {fileID: 989100987296680508}
+  - component: {fileID: -1122793406606512690}
   m_Layer: 0
-  m_Name: Penguin
+  m_Name: Penguin_LV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,3 +87,20 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.0000000018626451, z: 0.017562523}
     m_Extent: {x: 0.019773815, y: 0.016016249, z: 0.017435454}
   m_DirtyAABB: 0
+--- !u!114 &-1122793406606512690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898664108371240221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb89c0e8c591ed4b99e97e4f5f10fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  score: 1
+  weapon: {fileID: 0}
+  bullet: {fileID: 0}
+  blood: {fileID: 0}
