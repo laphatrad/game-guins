@@ -5,18 +5,15 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     public double hp = 20;
-    public int score = 1;
     public Weapon weapon;
     public GameObject bullet;
+    public AudioSource DeathSound;
 
     private double firingRate = 2;
     private double remainingFiringRate = 0;
-    private float movementSpeed = 3f;
+    private float movementSpeed = 5f;
     private Vector3 lastPosition;
     private Vector3 movementDirection;
-
-    public ParticleSystem blood;
-
     // Start is called before the first frame update
     void Start() {
         movementDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
@@ -43,6 +40,7 @@ public class Monster : MonoBehaviour
             transform.position = newPosition;
         }
         if (hp <= 0) {
+            DeathSound.Play();
             Die();
         }
 
@@ -56,24 +54,9 @@ public class Monster : MonoBehaviour
 
     public void TakeDamage(double damage) {
         hp -= damage;
-        blood.Play();
-        Debug.Log("TakeDamage hp -> "+hp);
     }
 
     void Die() {
-        Debug.Log("Monster Die");
-        GameManager.Instance.score += score;
-        this.gameObject.SetActive(false);
-    }
-
-    private void OnCollisionEnter(Collision collision) {
-        Debug.Log("Monster hp -> "+hp);
-        Debug.Log("Monster Tag -> "+collision.gameObject.tag);
-        if (collision.gameObject.tag == "Weapon") {
-            TakeDamage(20);
-        }
-        if (collision.gameObject.tag == "Bullet") {
-            TakeDamage(20);
-        }
+        Destroy(this.gameObject);
     }
 }
