@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &72204819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1470786204549839856, guid: 21f59e5d4c4254d39ba494798118912a, type: 3}
+  m_PrefabInstance: {fileID: 1345108582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &159660672
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,8 +467,8 @@ RectTransform:
   - {fileID: 595095060}
   - {fileID: 901129700}
   - {fileID: 1458116969}
-  - {fileID: 1345108583}
   - {fileID: 1683215286}
+  - {fileID: 1345108583}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1491,7 +1502,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 329361276}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2212,7 +2223,7 @@ MonoBehaviour:
   isPlaying: 0
   isGameOver: 0
   shootButton: {fileID: 1863338973}
-  resetButton: {fileID: 0}
+  resetButton: {fileID: 72204819}
   aim: {fileID: 1418559386}
   scan: {fileID: 901129699}
   msgDied: {fileID: 1458116968}
