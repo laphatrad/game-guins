@@ -5,6 +5,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     public double hp = 20;
+    public int score = 1;
     public Weapon weapon;
     public GameObject bullet;
     public AudioSource DeathSound;
