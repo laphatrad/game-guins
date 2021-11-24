@@ -14,6 +14,7 @@ public class Stage : MonoBehaviour
     public GameObject monster;
     public int monsterAmount;
 
+    public Weapon weapon;
     private bool isSpawn = false;
 
     // Start is called before the first frame update
@@ -25,16 +26,11 @@ public class Stage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isPlaying) {
-            if (timeRemaining > 0) {
-                timeRemaining -= Time.deltaTime;
-
+        if (GameManager.Instance.isPlaying) {
+            int monsterRemaining = GetMonsterRemaining();
+            if (monsterRemaining == 0) {
+                FinishStage();
             }
-            else {
-                isPlaying = false;
-            }
-        } else {
-            
         }
     }
 
@@ -45,8 +41,7 @@ public class Stage : MonoBehaviour
             monsters[i].SetActive(false);
         }
         respawningPoint = point;
-        timeRemaining = time;
-        isPlaying = false;
+        GameManager.Instance.timeRemaining = time;
     }
 
     public void StartStage() {
@@ -61,8 +56,29 @@ public class Stage : MonoBehaviour
     {
         for (int i = 0; i < monsterAmount; i++) {
             monsters[i].SetActive(true);
+            monsters[i].GetComponent<Monster>().weapon = weapon;
             yield return new WaitForSeconds(0.1f);
         }
-        isPlaying = true;
+        GameManager.Instance.isPlaying = true;
+    }
+
+    int GetMonsterRemaining() {
+        int remaining = 0;
+        for (int i = 0; i < monsterAmount; i++) {
+            if (monsters[i].activeSelf) {
+                remaining += 1;
+            }
+        }
+        Debug.Log("Remaining" + remaining);
+        return remaining;
+    }
+
+    void FinishStage() {
+        GameManager.Instance.isPlaying = false;
+        GameManager.Instance.score += 10;
+        GameManager.Instance.timeRemaining = 0;
+        for (int i = 0; i < monsterAmount; i++) {
+            Destroy(monsters[i]);
+        }
     }
 }
