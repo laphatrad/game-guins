@@ -13,6 +13,9 @@ public class Monster : MonoBehaviour
     private float movementSpeed = 5f;
     private Vector3 lastPosition;
     private Vector3 movementDirection;
+
+    public ParticleSystem blood;
+
     // Start is called before the first frame update
     void Start() {
         movementDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
@@ -51,6 +54,7 @@ public class Monster : MonoBehaviour
 
     public void TakeDamage(double damage) {
         hp -= damage;
+        blood.Play();
     }
 
     void Die() {
