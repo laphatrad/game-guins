@@ -1,8 +1,20 @@
 fileFormatVersion: 2
-guid: ba03d791f422b3248b89bec743fd286f
+guid: 36198d2d0b15be04b8964d1b9fbd091a
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -8720027403169568637
+    second: oRun.002
+  - first:
+      74: 1170072145776200795
+    second: oStand
+  - first:
+      74: -2774270059155644716
+    second: Penguin|oStand
+  - first:
+      74: -3374612182478982617
+    second: Penguin|oRun.001
   externalObjects: {}
   materials:
     materialImportMode: 2
