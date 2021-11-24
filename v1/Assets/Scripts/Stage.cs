@@ -16,6 +16,7 @@ public class Stage : MonoBehaviour
 
     public Weapon weapon;
     private bool isSpawn = false;
+    private int totalMonsters ;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,11 @@ public class Stage : MonoBehaviour
             int monsterRemaining = GetMonsterRemaining();
             if (monsterRemaining == 0) {
                 FinishStage();
+                ClearStage();
             }
+        }
+        if(GameManager.Instance.isGameOver){
+            ClearStage();
         }
     }
 
@@ -42,13 +47,17 @@ public class Stage : MonoBehaviour
         }
         respawningPoint = point;
         GameManager.Instance.timeRemaining = time;
+        isSpawn = false;
     }
 
     public void StartStage() {
+        Debug.Log(isSpawn);
         if (!isSpawn) {
             isSpawn = true;
             SetRespawningPoint(transform.position);
             StartCoroutine(SpawnMonsters());
+            GameManager.Instance.isPlaying = true;
+            GameManager.Instance.StartGame();
         }
     }
 
@@ -74,11 +83,17 @@ public class Stage : MonoBehaviour
     }
 
     void FinishStage() {
-        GameManager.Instance.isPlaying = false;
         GameManager.Instance.score += 10;
+    }
+
+    void ClearStage(){
+        GameManager.Instance.isPlaying = false;
         GameManager.Instance.timeRemaining = 0;
-        for (int i = 0; i < monsterAmount; i++) {
-            Destroy(monsters[i]);
-        }
+        totalMonsters = monsters.Length;
+        if(totalMonsters >0){
+            for (int i = 0; i < monsterAmount; i++) {
+                Destroy(monsters[i]);
+            }
+        }      
     }
 }
