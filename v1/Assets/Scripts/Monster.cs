@@ -8,13 +8,14 @@ public class Monster : MonoBehaviour
     public int score = 1;
     public Weapon weapon;
 
-    public float movementSpeed = 3f;
-    private Vector3 lastPosition;
-    private Vector3 movementDirection;
-
     public ParticleSystem blood;
     private ParticleSystem initiatedBlood;
 
+    public AudioSource DeathSound;
+
+    private float movementSpeed = 5f;
+    private Vector3 lastPosition;
+    private Vector3 movementDirection;
     // Start is called before the first frame update
     void Start() {
         movementDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
