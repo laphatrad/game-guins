@@ -14,6 +14,7 @@ public class Stage : MonoBehaviour
 
     private GameObject[] monsters;
     private bool isSpawn = false;
+    private int totalMonsters ;
     private TMPro.TextMeshProUGUI stageDetail;
 
     // Start is called before the first frame update
@@ -30,7 +31,11 @@ public class Stage : MonoBehaviour
             int monsterRemaining = GetMonsterRemaining();
             if (monsterRemaining == 0) {
                 FinishStage();
+                ClearStage();
             }
+        }
+        if(GameManager.Instance.isGameOver){
+            ClearStage();
         }
     }
 
@@ -41,6 +46,7 @@ public class Stage : MonoBehaviour
             monsters[i].SetActive(false);
         }
         GameManager.Instance.timeRemaining = time;
+        isSpawn = false;
     }
 
     public void ShowDetail() {
@@ -52,11 +58,14 @@ public class Stage : MonoBehaviour
     }
 
     public void StartStage() {
+        Debug.Log(isSpawn);
         if (!isSpawn) {
             if (GameManager.Instance.level >= level) {
                 isSpawn = true;
                 SetRespawningPoint(transform.position);
                 StartCoroutine(SpawnMonsters());
+                GameManager.Instance.isPlaying = true;
+                GameManager.Instance.StartGame();
             } else {
 
             }
@@ -85,11 +94,17 @@ public class Stage : MonoBehaviour
     }
 
     void FinishStage() {
+        GameManager.Instance.level = level + 1;    
+    }
+
+    void ClearStage() {
         GameManager.Instance.isPlaying = false;
-        GameManager.Instance.level = level + 1;
         GameManager.Instance.timeRemaining = 0;
-        for (int i = 0; i < monsterAmount; i++) {
-            Destroy(monsters[i]);
-        }
+        totalMonsters = monsters.Length;
+        if(totalMonsters >0){
+            for (int i = 0; i < monsterAmount; i++) {
+                Destroy(monsters[i]);
+            }
+        }  
     }
 }
