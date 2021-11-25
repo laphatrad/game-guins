@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public int level = 1;
     public int score = 0;
     public double timeRemaining;
     public bool isPlaying = false;
