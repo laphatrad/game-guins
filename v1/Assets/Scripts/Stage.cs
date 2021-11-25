@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    public bool isPlaying;
     public int level;
-    public Vector3 respawningPoint;
-    public GameObject[] monsters;
-    public double timeRemaining;
+    public string description;
 
     public double time;
     public GameObject monster;
     public int monsterAmount;
-
     public Weapon weapon;
+
+    private GameObject[] monsters;
     private bool isSpawn = false;
+    private TMPro.TextMeshProUGUI stageDetail;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        stageDetail = gameObject.GetComponent<TMPro.TextMeshProUGUI>();
+        HideDetail();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isPlaying) {
+        if (GameManager.Instance.isPlaying && isSpawn) {
             int monsterRemaining = GetMonsterRemaining();
             if (monsterRemaining == 0) {
                 FinishStage();
@@ -40,15 +40,26 @@ public class Stage : MonoBehaviour
             monsters[i] = Instantiate(monster, new Vector3(point.x + Random.Range(-5f, 5f), point.y + Random.Range(0, 10f), point.z + Random.Range(-5f, 5f)), monster.transform.rotation);
             monsters[i].SetActive(false);
         }
-        respawningPoint = point;
         GameManager.Instance.timeRemaining = time;
+    }
+
+    public void ShowDetail() {
+        stageDetail.gameObject.SetActive(true);
+    }
+
+    public void HideDetail() {
+        stageDetail.gameObject.SetActive(false);
     }
 
     public void StartStage() {
         if (!isSpawn) {
-            isSpawn = true;
-            SetRespawningPoint(transform.position);
-            StartCoroutine(SpawnMonsters());
+            if (GameManager.Instance.level >= level) {
+                isSpawn = true;
+                SetRespawningPoint(transform.position);
+                StartCoroutine(SpawnMonsters());
+            } else {
+
+            }
         }
     }
 
@@ -75,7 +86,7 @@ public class Stage : MonoBehaviour
 
     void FinishStage() {
         GameManager.Instance.isPlaying = false;
-        GameManager.Instance.score += 10;
+        GameManager.Instance.level = level + 1;
         GameManager.Instance.timeRemaining = 0;
         for (int i = 0; i < monsterAmount; i++) {
             Destroy(monsters[i]);

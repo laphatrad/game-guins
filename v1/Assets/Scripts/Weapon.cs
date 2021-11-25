@@ -51,6 +51,7 @@ public class Weapon : MonoBehaviour
             // }
             GameObject bulletObj = Instantiate(bullet, transform.position, transform.rotation);
             bullet.transform.forward = transform.forward;
+            bullet.transform.rotation = transform.rotation;
             remainingFiringRate = firingRate;
         }
     }
