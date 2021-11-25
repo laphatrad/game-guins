@@ -11,6 +11,8 @@ public class Stage : MonoBehaviour
     public GameObject monster;
     public int monsterAmount;
     public Weapon weapon;
+    public AudioSource mainTheme;
+    public AudioSource bossTheme;
 
     private GameObject[] monsters;
     private bool isSpawn = false;
@@ -60,6 +62,18 @@ public class Stage : MonoBehaviour
     public void StartStage() {
         Debug.Log(isSpawn);
         if (!isSpawn) {
+            if (GameManager.Instance.level == 1){
+                mainTheme.Play();
+            }
+            if (GameManager.Instance.level == 2){
+                mainTheme.Stop();
+                mainTheme.Play();
+            }
+            if (GameManager.Instance.level == 3){
+                mainTheme.Stop();
+                bossTheme.Play();
+            }
+
             if (GameManager.Instance.level >= level) {
                 isSpawn = true;
                 SetRespawningPoint(transform.position);
