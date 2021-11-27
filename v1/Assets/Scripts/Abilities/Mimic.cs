@@ -23,6 +23,6 @@ public class Mimic : MonoBehaviour
     }
 
     void DestroyPenguin() {
-        Destroy(createdPenguin);
+        Destroy(createdPenguin.gameObject);
     }
 }
