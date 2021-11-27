@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3114b89b7e44c8ebe3f58ece0629d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 10
   weapon: {fileID: 0}
   movementSpeed: 5
   blood: {fileID: 5193952684752020231, guid: 5d817e218ec87064ea9505cb1c530db1, type: 3}
