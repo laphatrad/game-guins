@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public double timeRemaining;
     public int gameState;
 
+    private bool isStartState = false;
+
     private void Awake()
     {
         Instance = this;
@@ -36,17 +38,21 @@ public class GameManager : MonoBehaviour
                 break;
             }
             case GameConstant.winState: {
-                StartCoroutine(GoToInitState());
+                if (!isStartState) {
+                    StartCoroutine(GoToInitState());
+                }
                 break;
             }
         }
     }
 
     private IEnumerator GoToInitState() {
+        isStartState = true;
         if (selectStage.level >= level) {
             level = selectStage.level + 1;
         }
         yield return new WaitForSeconds(3f);
+        isStartState = false;
         gameState = GameConstant.initState;
         selectStage = null;
     }
