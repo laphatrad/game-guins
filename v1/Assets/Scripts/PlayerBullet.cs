@@ -34,5 +34,10 @@ public class PlayerBullet : MonoBehaviour
             penguin.TakeDamage(damage);
             Destroy(this.gameObject);
         }
+        if (collider.gameObject.tag == "Bullet") {
+            Bullet bullet = collider.gameObject.GetComponent<Bullet>();
+            Destroy(bullet.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

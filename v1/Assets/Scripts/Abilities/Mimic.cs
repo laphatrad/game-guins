@@ -17,12 +17,6 @@ public class Mimic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.gameState != GameConstant.playingState) {
-            DestroyPenguin();
-        }
-    }
-
-    void DestroyPenguin() {
-        Destroy(createdPenguin.gameObject);
+        
     }
 }

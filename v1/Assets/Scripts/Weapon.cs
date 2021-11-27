@@ -10,15 +10,15 @@ public class Weapon : MonoBehaviour
 
     public TMPro.TextMeshProUGUI txtHp;
 
-    private double firingRate = 0.10;
+    public string name;
+    public double firingRate;
     private double remainingFiringRate = 0;
-    private double damage = 20;
-    private LineRenderer laserLine;
+    public double damage;
+    public int minimumLevel;    
     private Camera camera;
     // Start is called before the first frame update
     void Start()
     {
-        laserLine = GetComponent<LineRenderer>();
         camera = GetComponentInParent<Camera>();
     }
 
@@ -42,10 +42,17 @@ public class Weapon : MonoBehaviour
         GameManager.Instance.hp -= damage;
     }
 
-    private IEnumerator ShotEffect()
-    {
-        laserLine.enabled = true;
-        yield return new WaitForSeconds(0.07f);
-        laserLine.enabled = false;
+    public void ShowWeaponDetail() {
+        if (GameManager.Instance.gameState == GameConstant.initState) {
+            GameManager.Instance.gameState = GameConstant.selectWeaponState;
+            GameManager.Instance.selectWeapon = gameObject.GetComponent<Weapon>();
+        }
+    }
+
+    public void HideWeaponDetail() {
+        if (GameManager.Instance.gameState == GameConstant.selectWeaponState) {
+            GameManager.Instance.gameState = GameConstant.initState;
+            GameManager.Instance.selectWeapon = null;
+        }
     }
 }

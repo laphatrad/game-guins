@@ -88,15 +88,10 @@ public class Stage : MonoBehaviour
                 bossTheme.Play();
             }
 
-            if (GameManager.Instance.level == level) {
-                Debug.Log("Level 1");
-                isSpawn = true;
-                SetRespawningPoint(weapon.transform.position);
-                StartCoroutine(SpawnMonsters());
-                GameManager.Instance.gameState = GameConstant.playingState;
-            } else {
-
-            }
+            isSpawn = true;
+            SetRespawningPoint(weapon.transform.position);
+            StartCoroutine(SpawnMonsters());
+            GameManager.Instance.gameState = GameConstant.playingState;
         }
     }
 

@@ -506,12 +506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfbd9c42ef16459f8c361613f970f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 1000
   score: 100
   weapon: {fileID: 0}
   movementSpeed: 5
   blood: {fileID: 5193952684752020231, guid: 5d817e218ec87064ea9505cb1c530db1, type: 3}
-  DeathSound: {fileID: 0}
+  DeathSound: {fileID: 212028158245230834, guid: 1c43f9eab305f4973b30cf3184e83b12, type: 3}
 --- !u!114 &-323695431567856230
 MonoBehaviour:
   m_ObjectHideFlags: 0

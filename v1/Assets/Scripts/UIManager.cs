@@ -20,6 +20,10 @@ public class UIManager : MonoBehaviour
 
     public TMPro.TextMeshProUGUI txtWin;
     public Button startButton;
+
+    public TMPro.TextMeshProUGUI txtWeaponDetail;
+    public TMPro.TextMeshProUGUI txtRequiredLevelWeapon;
+    public Button weaponButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +35,7 @@ public class UIManager : MonoBehaviour
     {
         SetInitScene();
         SetSelectStageScene();
+        SetSelectWeaponScene();
         SetPlayingScene();
         SetWinningScene();
         SetGameOverScene();
@@ -87,5 +92,31 @@ public class UIManager : MonoBehaviour
         bool isActive = GameManager.Instance.gameState == GameConstant.gameOverState;
         msgDied.gameObject.SetActive(isActive);
         resetButton.gameObject.SetActive(isActive);
+    }
+
+    void SetSelectWeaponScene() {
+        bool isActive = GameManager.Instance.gameState == GameConstant.selectWeaponState;
+        txtWeaponDetail.gameObject.SetActive(isActive);
+        if (isActive && GameManager.Instance.selectWeapon != null) {
+            string damage = "Damage: " + GameManager.Instance.weapon.damage.ToString() + " -> " + GameManager.Instance.selectWeapon.damage.ToString();
+            string fireRate = "Rate: " + GameManager.Instance.weapon.firingRate.ToString() + " -> " + GameManager.Instance.selectWeapon.firingRate.ToString();
+            txtWeaponDetail.text = damage + "\n" + fireRate;
+            if (GameManager.Instance.weapon.name == GameManager.Instance.selectWeapon.name) {
+                txtRequiredLevelWeapon.gameObject.SetActive(isActive);
+                txtRequiredLevelWeapon.text = "Equipped";
+            }
+            else if (GameManager.Instance.level >= GameManager.Instance.selectWeapon.minimumLevel) {
+                weaponButton.gameObject.SetActive(isActive);
+            }
+            else {
+                txtRequiredLevelWeapon.gameObject.SetActive(isActive);
+                txtRequiredLevelWeapon.text = "Required level: " + GameManager.Instance.selectWeapon.minimumLevel.ToString();
+            }
+        }
+        else {
+            weaponButton.gameObject.SetActive(isActive);
+            txtWeaponDetail.gameObject.SetActive(isActive);
+            txtRequiredLevelWeapon.gameObject.SetActive(isActive);
+        }
     }
 }

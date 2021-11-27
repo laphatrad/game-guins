@@ -9,4 +9,5 @@ public static class GameConstant
     public const int winState = 2;
     public const int gameOverState = 3;
     public const int selectStageState = 4;
+    public const int selectWeaponState = 5;
 }

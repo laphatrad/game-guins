@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int level = 1;
     public double hp = 100;
     public Stage selectStage;
+    public Weapon selectWeapon;
+    public Weapon weapon;
     public int score = 0;
     public double timeRemaining;
     public int gameState;
@@ -61,5 +63,15 @@ public class GameManager : MonoBehaviour
         gameState = GameConstant.initState;
         score = 0;
         hp = 100;
+    }
+
+    public void SetNewWeapon() {
+        Weapon wpn = weapon.GetComponent<Weapon>();
+        wpn.name = selectWeapon.name;
+        wpn.damage = selectWeapon.damage;
+        wpn.firingRate = selectWeapon.firingRate;
+        wpn.bullet = selectWeapon.bullet;
+        selectWeapon = null;
+        gameState = GameConstant.initState;
     }
 }
