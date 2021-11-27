@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3867658840270825168}
   - component: {fileID: 1762698436405261830}
   - component: {fileID: 1357389990118481343}
+  - component: {fileID: 826646598832756640}
   m_Layer: 0
   m_Name: CatLv2
   m_TagString: Monster
@@ -50,8 +51,8 @@ MonoBehaviour:
   score: 1
   weapon: {fileID: 0}
   movementSpeed: 5
-  blood: {fileID: 0}
-  DeathSound: {fileID: 0}
+  blood: {fileID: 5193952684752020231, guid: 5d817e218ec87064ea9505cb1c530db1, type: 3}
+  DeathSound: {fileID: 212028158245230834, guid: 1c43f9eab305f4973b30cf3184e83b12, type: 3}
 --- !u!65 &1762698436405261830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78,6 +79,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penguin: {fileID: 7418853616759120601, guid: fce11983e67ac42049f1f74e03bc3f0a, type: 3}
+--- !u!54 &826646598832756640
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086838535924893073}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &8087724055903065009
 PrefabInstance:
   m_ObjectHideFlags: 0

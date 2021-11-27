@@ -48,7 +48,12 @@ public class Stage : MonoBehaviour
     void SetRespawningPoint(Vector3 point) {
         monsters = new GameObject[monsterAmount];
         for (int i = 0; i < monsterAmount; i++) {
-            monsters[i] = Instantiate(monster, new Vector3(point.x + Random.Range(-5f, 5f), point.y + Random.Range(0, 10f), point.z + Random.Range(-5f, 5f)), monster.transform.rotation);
+            monsters[i] = Instantiate(
+                monster,
+                new Vector3(
+                    point.x + Random.Range(-5f, 5f),
+                    point.y + Random.Range(0, 10f),
+                    point.z + Random.Range(-5f, 5f)), monster.transform.rotation);
             monsters[i].SetActive(false);
         }
         GameManager.Instance.timeRemaining = time;
@@ -86,7 +91,7 @@ public class Stage : MonoBehaviour
             if (GameManager.Instance.level == level) {
                 Debug.Log("Level 1");
                 isSpawn = true;
-                SetRespawningPoint(transform.position);
+                SetRespawningPoint(weapon.transform.position);
                 StartCoroutine(SpawnMonsters());
                 GameManager.Instance.gameState = GameConstant.playingState;
             } else {

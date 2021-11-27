@@ -34,13 +34,17 @@ public class Penguin : MonoBehaviour
         var wpn = weapon.GetComponent<Weapon>();
         transform.LookAt(wpn.transform);
         var newPosition = transform.position + (movementDirection * movementSpeed * Time.deltaTime);
-        var farther = Vector3.Distance(lastPosition, wpn.transform.position) < Vector3.Distance(newPosition, wpn.transform.position);
-        if (farther && Vector3.Distance(newPosition, wpn.transform.position) >= 20f) {
+        var farther = Vector3.Dot(transform.forward, movementDirection) < 0;
+        if (farther && Vector3.Distance(newPosition, wpn.transform.position) >= 18f) {
             movementDirection = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
             if (Vector3.Dot(transform.forward, movementDirection) < 0) {
                 movementDirection = movementDirection * -1;
             }
-        } else {
+        }
+        else if (Vector3.Distance(newPosition, wpn.transform.position) >= 25f) {
+            transform.position = wpn.transform.position + Random.insideUnitSphere * 10;
+        }
+        else {
             lastPosition = transform.position;
             transform.position = newPosition;
         }
