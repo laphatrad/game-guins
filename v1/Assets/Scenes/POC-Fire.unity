@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -256,25 +256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusFilter: 0
-  OnTargetFound:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 778027726}
-        m_TargetAssemblyTypeName: Stage, Assembly-CSharp
-        m_MethodName: StartStage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnTargetLost:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &88161995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,15 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: nyarth
-  mInitializedInEditor: 1
-  mDataSetPath: Vuforia/guins.xml
-  mAspectRatio: 1.316
-  mImageTargetType: 0
-  mWidth: 1
-  mHeight: 1.316
-  mRuntimeTexture: {fileID: 0}
-  mMotionHint: 1
 --- !u!1 &159660672
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &173545139
 GameObject:
@@ -488,6 +460,8 @@ MonoBehaviour:
   monster: {fileID: 8672439526872192704, guid: 66b8c58e859fba542a6c07363bc0015d, type: 3}
   monsterAmount: 10
   weapon: {fileID: 393049943}
+  mainTheme: {fileID: 0}
+  bossTheme: {fileID: 0}
 --- !u!1 &329361272
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +566,7 @@ RectTransform:
   - {fileID: 1683215286}
   - {fileID: 1345108583}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -709,25 +683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusFilter: 0
-  OnTargetFound:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 173545141}
-        m_TargetAssemblyTypeName: Stage, Assembly-CSharp
-        m_MethodName: StartStage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnTargetLost:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &330539136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,15 +695,6 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: qr-code
-  mInitializedInEditor: 1
-  mDataSetPath: Vuforia/AR_MODEL.xml
-  mAspectRatio: 1
-  mImageTargetType: 0
-  mWidth: 1
-  mHeight: 1
-  mRuntimeTexture: {fileID: 0}
-  mMotionHint: 1
 --- !u!114 &330539137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,8 +767,6 @@ MonoBehaviour:
   m_Script: {fileID: -1826476478, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mWorldCenterMode: 2
-  mWorldCenter: {fileID: 0}
 --- !u!81 &587206555
 AudioListener:
   m_ObjectHideFlags: 0
@@ -889,7 +833,7 @@ Transform:
   - {fileID: 393049941}
   - {fileID: 88161989}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592188277
 GameObject:
@@ -1168,6 +1112,8 @@ MonoBehaviour:
   monster: {fileID: 8672439526872192704, guid: 66b8c58e859fba542a6c07363bc0015d, type: 3}
   monsterAmount: 10
   weapon: {fileID: 393049943}
+  mainTheme: {fileID: 0}
+  bossTheme: {fileID: 0}
 --- !u!1 &901129699
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,7 +2168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1839604132
 Mesh:
@@ -2799,7 +2745,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995655714
 GameObject:
@@ -2882,7 +2828,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2012980297
 PrefabInstance:
@@ -2949,3 +2895,60 @@ PrefabInstance:
       objectReference: {fileID: 879279945557359815, guid: 0ca2e2fb0e2af4db4bcd3e39aaa97850, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be4e924fadd274902b4dcd89dcda8990, type: 3}
+--- !u!1001 &485582435371563491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983340801401333960, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755796526222602866, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
+      propertyPath: m_Name
+      value: SubTool-6-12451624
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5bb520eb09961804bbcd80a139d7a446, type: 3}
