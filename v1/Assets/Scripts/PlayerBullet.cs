@@ -26,8 +26,12 @@ public class PlayerBullet : MonoBehaviour
         Debug.Log("Tag"+collider.gameObject.tag);
         if (collider.gameObject.tag == "Monster") {
             Monster monster = collider.gameObject.GetComponent<Monster>();
-            Debug.Log("monster");
             monster.TakeDamage(damage);
+            Destroy(this.gameObject);
+        }
+        if (collider.gameObject.tag == "Penguin") {
+            Penguin penguin = collider.gameObject.GetComponent<Penguin>();
+            penguin.TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }

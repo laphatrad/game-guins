@@ -17,27 +17,31 @@ public class Stage : MonoBehaviour
     private GameObject[] monsters;
     private bool isSpawn = false;
     private int totalMonsters ;
-    private TMPro.TextMeshProUGUI stageDetail;
 
     // Start is called before the first frame update
     void Start()
     {
-        stageDetail = gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-        HideDetail();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isPlaying && isSpawn) {
-            int monsterRemaining = GetMonsterRemaining();
-            if (monsterRemaining == 0) {
-                FinishStage();
-                ClearStage();
+        switch (GameManager.Instance.gameState) {
+            case GameConstant.playingState: {
+                if (isSpawn) {
+                    int monsterRemaining = GetMonsterRemaining();
+                    if (monsterRemaining == 0) {
+                        WinStage();
+                        ClearStage();
+                    }
+                }
+                break;
             }
-        }
-        if(GameManager.Instance.isGameOver){
-            ClearStage();
+            case GameConstant.gameOverState: {
+                ClearStage();
+                break;
+            }
         }
     }
 
@@ -48,19 +52,24 @@ public class Stage : MonoBehaviour
             monsters[i].SetActive(false);
         }
         GameManager.Instance.timeRemaining = time;
-        isSpawn = false;
+        isSpawn = true;
     }
 
-    public void ShowDetail() {
-        stageDetail.gameObject.SetActive(true);
+    public void ShowStageDetail() {
+        if (GameManager.Instance.gameState == GameConstant.initState) {
+            GameManager.Instance.gameState = GameConstant.selectStageState;
+            GameManager.Instance.selectStage = gameObject.GetComponent<Stage>();
+        }
     }
 
-    public void HideDetail() {
-        stageDetail.gameObject.SetActive(false);
+    public void HideStageDetail() {
+        if (GameManager.Instance.gameState == GameConstant.selectStageState) {
+            GameManager.Instance.gameState = GameConstant.initState;
+            GameManager.Instance.selectStage = null;
+        }
     }
 
     public void StartStage() {
-        Debug.Log(isSpawn);
         if (!isSpawn) {
             if (GameManager.Instance.level == 1){
                 mainTheme.Play();
@@ -74,12 +83,12 @@ public class Stage : MonoBehaviour
                 bossTheme.Play();
             }
 
-            if (GameManager.Instance.level >= level) {
+            if (GameManager.Instance.level == level) {
+                Debug.Log("Level 1");
                 isSpawn = true;
                 SetRespawningPoint(transform.position);
                 StartCoroutine(SpawnMonsters());
-                GameManager.Instance.isPlaying = true;
-                GameManager.Instance.StartGame();
+                GameManager.Instance.gameState = GameConstant.playingState;
             } else {
 
             }
@@ -93,7 +102,6 @@ public class Stage : MonoBehaviour
             monsters[i].GetComponent<Monster>().weapon = weapon;
             yield return new WaitForSeconds(0.1f);
         }
-        GameManager.Instance.isPlaying = true;
     }
 
     int GetMonsterRemaining() {
@@ -103,19 +111,20 @@ public class Stage : MonoBehaviour
                 remaining += 1;
             }
         }
-        Debug.Log("Remaining" + remaining);
         return remaining;
     }
 
-    void FinishStage() {
-        GameManager.Instance.level = level + 1;    
+    void WinStage() {
+        GameManager.Instance.gameState = GameConstant.winState; 
     }
 
     void ClearStage() {
-        GameManager.Instance.isPlaying = false;
+        mainTheme.Stop();
+        bossTheme.Stop();
+        isSpawn = false;
         GameManager.Instance.timeRemaining = 0;
         totalMonsters = monsters.Length;
-        if(totalMonsters >0){
+        if (totalMonsters > 0) {
             for (int i = 0; i < monsterAmount; i++) {
                 Destroy(monsters[i]);
             }

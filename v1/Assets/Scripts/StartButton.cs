@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResetButton : MonoBehaviour
+public class StartButton : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Button button;
-    public Stage stage;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
         var btn = button.GetComponent<Button>();
-        btn.onClick.AddListener(clickReset);
+        btn.onClick.AddListener(StartStage);
     }
 
     // Update is called once per frame
@@ -22,8 +19,7 @@ public class ResetButton : MonoBehaviour
         
     }
 
-    void clickReset(){
-        Debug.Log("Click");
-        GameManager.Instance.RestartGame();
+    void StartStage() {
+        GameManager.Instance.selectStage.StartStage();
     }
 }
