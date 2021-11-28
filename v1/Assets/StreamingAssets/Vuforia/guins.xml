@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="lasergun" size="1.000000 0.598039" />
+    <ImageTarget name="catguin" size="1.000000 1.000000" />
+    <ImageTarget name="catwoman" size="1.000000 1.384189" />
+    <ImageTarget name="catnana" size="1.000000 1.304459" />
     <ImageTarget name="nyarth" size="1.000000 1.316000" />
   </Tracking>
 </QCARConfig>

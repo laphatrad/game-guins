@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: -6555496180257695559}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,9 +120,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7703029887143714567}
-  m_LocalRotation: {x: -0.068701036, y: -0.4546675, z: -0.03520319, w: 0.8873096}
+  m_LocalRotation: {x: 0.040937517, y: 0.56469613, z: -0.028061556, w: 0.8238052}
   m_LocalPosition: {x: -0.0000035524129, y: 9.0765505, z: -3.0188847}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 8641604433861654178}
   m_Father: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe54e8051e57408fa18551869795cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 4
   damage: 5
 --- !u!135 &-6555496180257695559
 SphereCollider:

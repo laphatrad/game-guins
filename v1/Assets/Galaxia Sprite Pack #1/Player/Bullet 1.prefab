@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &879279945557359815
+--- !u!1 &126644868461731204
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4718907907364301997}
-  - component: {fileID: 8699263247660941825}
-  - component: {fileID: 7117409484039460998}
+  - component: {fileID: 126644868461731790}
+  - component: {fileID: 126644868461731561}
+  - component: {fileID: 126644868461731608}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4718907907364301997
+--- !u!4 &126644868461731790
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879279945557359815}
+  m_GameObject: {fileID: 126644868461731204}
   m_LocalRotation: {x: 0.47245568, y: -0.3216218, z: -0.23136717, w: 0.7872829}
-  m_LocalPosition: {x: 13.203132, y: 11.989951, z: -8.86082}
+  m_LocalPosition: {x: 39.5975, y: 2.88702, z: -3.9671583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1874558027006133230}
+  - {fileID: 2000207646451785217}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8699263247660941825
+--- !u!114 &126644868461731561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879279945557359815}
+  m_GameObject: {fileID: 126644868461731204}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4ef20d549373487daebeec473f04ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  damage: 5
---- !u!136 &7117409484039460998
+  damage: 10
+--- !u!136 &126644868461731608
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879279945557359815}
+  m_GameObject: {fileID: 126644868461731204}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -61,13 +61,17 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &6428526308522751386
+--- !u!1001 &6410689661207439477
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4718907907364301997}
+    m_TransformParent: {fileID: 126644868461731790}
     m_Modifications:
+    - target: {fileID: 4349351533087356569, guid: ec28b5596928e49db8fdcf123a727828, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3abe5c405d8ae041a1c151d9ba3c2c3, type: 3}
     - target: {fileID: 4439137759140859179, guid: ec28b5596928e49db8fdcf123a727828, type: 3}
       propertyPath: m_Name
       value: BulletsSpriteSheetBlue_0
@@ -120,8 +124,8 @@ PrefabInstance:
     - {fileID: 303276321560825809, guid: ec28b5596928e49db8fdcf123a727828, type: 3}
     - {fileID: -4970312736003624233, guid: ec28b5596928e49db8fdcf123a727828, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ec28b5596928e49db8fdcf123a727828, type: 3}
---- !u!4 &1874558027006133230 stripped
+--- !u!4 &2000207646451785217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4842902360882591348, guid: ec28b5596928e49db8fdcf123a727828, type: 3}
-  m_PrefabInstance: {fileID: 6428526308522751386}
+  m_PrefabInstance: {fileID: 6410689661207439477}
   m_PrefabAsset: {fileID: 0}

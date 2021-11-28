@@ -8,67 +8,70 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public int level = 1;
+    public double hp = 100;
+    public Stage selectStage;
+    public Weapon selectWeapon;
+    public Weapon weapon;
     public int score = 0;
     public double timeRemaining;
-    public bool isPlaying = false;
-    public bool isGameOver = false;
+    public int gameState;
 
-    public Button shootButton;
-    public Button resetButton;
-
-    public GameObject aim;
-    public GameObject scan;
-    public GameObject msgDied;
-
-    public TMPro.TextMeshProUGUI txtScore;
-    public TMPro.TextMeshProUGUI txtTime;
-
-    
+    private bool isStartState = false;
 
     private void Awake()
     {
         Instance = this;
-        StartGame();
+        RestartGame();
     }
 
     void Update()
     {
-        txtScore.text = "Score: " + score.ToString();
-        if (isPlaying) {
-            SetActiveScene(true);
-            scan.gameObject.SetActive(false);
-            txtTime.text = timeRemaining.ToString("0.00");
-            if (timeRemaining > 0) {
-                timeRemaining -= Time.deltaTime;
+        if (hp <= 0) {
+            gameState = GameConstant.gameOverState;
+        }
+        switch (gameState) {
+            case GameConstant.playingState: {
+                if (timeRemaining > 0) {
+                    timeRemaining -= Time.deltaTime;
+                }
+                else {
+                    gameState = GameConstant.gameOverState;
+                }
+                break;
             }
-            else {
-                isPlaying = false;
-                isGameOver = true;
-                GameOver();
-                SetActiveScene(isPlaying);
+            case GameConstant.winState: {
+                if (!isStartState) {
+                    StartCoroutine(GoToInitState());
+                }
+                break;
             }
-        } else {
-            txtTime.text = "Not start";
         }
     }
 
-    public void GameOver(){
-        msgDied.gameObject.SetActive(isGameOver);
-        resetButton.gameObject.SetActive(isGameOver);
+    private IEnumerator GoToInitState() {
+        isStartState = true;
+        if (selectStage.level >= level) {
+            level = selectStage.level + 1;
+        }
+        yield return new WaitForSeconds(3f);
+        isStartState = false;
+        gameState = GameConstant.initState;
+        selectStage = null;
     }
 
-    public void SetActiveScene(bool status){
-        shootButton.gameObject.SetActive(status);
-        txtTime.gameObject.SetActive(status);
-        txtScore.gameObject.SetActive(status);
-        aim.gameObject.SetActive(status);
-    }
-
-    public void StartGame(){
+    public void RestartGame() {
+        gameState = GameConstant.initState;
         score = 0;
-        isGameOver = false;
-        scan.gameObject.SetActive(true);
-        GameOver();
-        SetActiveScene(false);
+        hp = 100;
+    }
+
+    public void SetNewWeapon() {
+        Weapon wpn = weapon.GetComponent<Weapon>();
+        wpn.name = selectWeapon.name;
+        wpn.damage = selectWeapon.damage;
+        wpn.firingRate = selectWeapon.firingRate;
+        wpn.bullet = selectWeapon.bullet;
+        selectWeapon = null;
+        gameState = GameConstant.initState;
     }
 }

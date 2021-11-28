@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class Penguin : MonoBehaviour
 {
     public double hp = 20;
-    public int score = 1;
     public Weapon weapon;
     public float movementSpeed = 5f;
 
@@ -29,6 +28,9 @@ public class Monster : MonoBehaviour
         Move();
         if (hp <= 0) {
             Die();
+        }
+        if (GameManager.Instance.gameState != GameConstant.playingState) {
+            Destroy(gameObject);
         }
     }
 
@@ -68,14 +70,12 @@ public class Monster : MonoBehaviour
     }
 
     public void TakeDamage(double damage) {
+        GameManager.Instance.hp -= damage;
         hp -= damage;
         initiatedBlood.Play();
-        Debug.Log("TakeDamage hp -> "+hp);
     }
 
     void Die() {
-        Debug.Log("Monster Die");
-        GameManager.Instance.score += score;
         this.gameObject.SetActive(false);
     }
 }
